@@ -16,9 +16,9 @@ static void update_time () {
   // Display this time on the TextLayer
   text_layer_set_text(s_time_layer, s_buffer);
 }
-  
+
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
-  update_time();  
+  update_time();
 }
 
 static void main_window_load(Window *window) {
@@ -46,19 +46,19 @@ static void main_window_unload(Window *window) {
 
 static void init() {
   s_main_window = window_create();
-  
+
   window_set_window_handlers (s_main_window, (WindowHandlers) {
     .load = main_window_load,
     .unload = main_window_unload
   });
   window_stack_push(s_main_window, true);
-  
+
   //Make sure the time is displayed from the start
   update_time();
 }
 
 static void deinit() {
-  window_destroy(s_main_window);  
+  window_destroy(s_main_window);
 }
 
 int main(void) {
